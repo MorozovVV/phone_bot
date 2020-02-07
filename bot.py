@@ -1,7 +1,9 @@
+import os
 import telebot
 from telebot import types
+TOKEN = os.environ["TOKEN"]
 phonenomber = '';
-bot = telebot.TeleBot('%1086391238:AAE6ZwO5DiiwwYkF69io1u1o16RJ8ZrvlQc%')
+bot = telebot.TeleBot(TOKEN)
 @bot.message_handler(content_typs=['text'])
 def get_text_messages(message):
     global phonenomber;
