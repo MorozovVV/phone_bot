@@ -9,4 +9,4 @@ def get_text_messages(message):
     phonenomber = '';
     phonenomber = message.text;
     bot.send_message(message.from_user.id, 'htts://api.whatsapp.com/send?phone=' + phonenomber)
-bot.polling(none_stop=True, interval=0)
+bot.polling(none_stop=True, interval=1)
