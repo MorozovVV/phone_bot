@@ -1,12 +1,13 @@
 import os
 import telebot
+import time
 from telebot import types
 TOKEN = os.environ["TOKEN"]
-
 bot = telebot.TeleBot(TOKEN)
-@bot.message_handler(content_typs=['text'])
-def get_text_messages(message):
-    phonenomber = '';
-    phonenomber = message.text;
-    bot.send_message(message.from_user.id, 'htts://api.whatsapp.com/send?phone=' + phonenomber)
-bot.polling(none_stop=True, interval=1)
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    bot.reply_to(message, "Hello")
+@bot.message_handler(func=lambda m: True)
+def echo_all(message):
+    bot.reply_to(message, message.text)
+bot.polling(none_stop=True)
